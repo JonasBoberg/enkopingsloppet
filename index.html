@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Enköpingsloppet – den årliga löparfesten i Enköping">
+  <meta name="theme-color" content="#c0392b">
+  <meta property="og:title" content="Enköpingsloppet">
+  <meta property="og:description" content="Den årliga löparfesten i Enköping — Ajabaja Cancer-loppet, APC 5,5 km och ICA Maxi-milen.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="sv_SE">
+  <meta property="og:image" content="Bilder/ajabaja_004.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Enköpingsloppet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="leaflet.css">
+  <link rel="stylesheet" href="lopp_style.css">
+</head>
+<body>
+
+  <!-- Skip navigation for screen readers -->
+  <a href="#main" class="skip-link">Hoppa till huvudinnehåll</a>
+
+  <!-- ======================== HEADER / NAV ======================== -->
+  <header class="site-header" id="site-header">
+    <nav class="navbar" aria-label="Huvudnavigation">
+      <div class="navbar_inner">
+        <a href="#home" class="navbar_logo">Enköpingsloppet</a>
+
+        <button
+          class="navbar_toggle"
+          id="nav-toggle"
+          aria-expanded="false"
+          aria-controls="nav-menu"
+          aria-label="Öppna meny"
+        >
+          <span class="navbar_bar"></span>
+          <span class="navbar_bar"></span>
+          <span class="navbar_bar"></span>
+        </button>
+
+        <ul class="navbar_menu" id="nav-menu" role="list">
+            <li><a href="#home" class="navbar_link">Hem</a></li>
+            <li><a href="#about" class="navbar_link">Om loppet</a></li>
+            <li><a href="#banan" class="navbar_link">Banan</a></li>
+            <li><a href="#raceinfo" class="navbar_link">Deltagarinformation</a></li>
+            <li><a href="#contact" class="navbar_link">Kontakt</a></li>
+            <li><a href="https://mittlopp.se/" class="navbar_link" target="_blank" rel="noopener noreferrer">Anmälan</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ======================== MAIN ======================== -->
+  <main id="main">
+
+    <!-- Hero -->
+    <section class="hero parallax" id="home" aria-label="Startsida">
+      <div class="hero_overlay"></div>
+      <div class="hero_content">
+        <h1 class="hero_title">Enköpingsloppet</h1>
+        <p class="hero_subtitle">Den årliga löparfesten i Enköping<br><time datetime="2027-06-19">19 juni 2027</time></p>
+      </div>
+    </section>
+
+    <!-- Om loppet -->
+    <section class="section reveal" id="about">
+      <div class="container">
+        <header class="section_header">
+          <h2 class="section_title">Om loppet</h2>
+          <p class="section_subtitle">En folkfest för hela Enköpings stad</p>
+        </header>
+
+        <div class="about-grid">
+          <div class="about_image-wrap">
+            <img
+              src="Bilder/Logga.jpeg"
+              alt="Löpare i fart längs banan"
+              class="about_image"
+              loading="lazy"
+            >
+          </div>
+          <div class="about_text">
+            <p>Enköpingsloppet är en årlig löpartävling som samlar hundratals löpare från hela Sverige. Vi erbjuder lopp för motionärer på alla nivåer, nybörjare till elit.</p>
+            <h3 class="race_name">Ajabaja Cancer-loppet</h3>
+            <p>Ett barnlopp i samarbete med Ajabaja Cancer. Loppet genomförs på löpbanan inne på ENA-vallen. Loppet syftar till att skapa rörelseglädje för barn samtidigt som vi uppmärksammar det viktiga arbete som organisationen gör för familjer som drabbats av barncancer.</p>
+            <h3 class="race_name">APC 5,5</h3>
+            <p>En vacker två varvs-bana runt Drömparken. Perfekt för dig som vill springa, jogga eller gå lite kortare än milloppet. Alla är välkomna!</p>
+            <h3 class="race_name">ICA Maxi-milen</h3>
+            <p>En platt och naturskön 10 km-bana genom Enköping. Banan är kontrollmätt av Svenska Friidrottsförbundet. Perfekt för dig som vill utmana dig själv på en längre sträcka eller för dig som vill slå personbästa på milen.</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Banan -->
+    <section class="section reveal" id="banan">
+      <div class="container">
+        <header class="section_header">
+          <h2 class="section_title">Banan</h2>
+          <p class="section_subtitle">Rutten som går genom Enköping och längs Drömparken</p>
+        </header>
+
+        <div class="route-grid">
+          <div class="route-map-wrapper">
+            <div class="route-selector" id="route-selector" aria-label="Välj lopp"></div>
+            <div id="route-map" aria-label="Interaktiv karta över banan"></div>
+          </div>
+
+          <div class="route-info">
+            <p>
+              Banan går runt och igenom Enköping. Du får se vackra vyer över Vattenparken, Drömparken och andra fina områden i Enköping. Längs 10km-banan finns en vattenstation.
+              Rutten är byggd för att vara både vacker och snabb.
+            </p>
+
+            <ul class="route-list">
+              <li><strong>Längd:</strong> 5,5 km för APC-loppet och 10 km för ICA Maxi-milen</li>
+              <li><strong>Terräng:</strong> Mestadels asfalt med ett par korta partier av grus</li>
+              <li><strong>Start och mål:</strong> ENA-vallen</li>
+              <li><strong>Milstolpar:</strong> Vattenstationer och hejarop längs vägen</li>
+            </ul>
+
+            <div class="route-badges">
+              <span>Vacker</span>
+              <span>Platt</span>
+              <span>Snabb</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Stats bar -->
+    <section class="stats reveal" aria-label="Statistik">
+      <div class="container">
+        <div class="stats_grid">
+          <div class="stat">
+            <span class="stat_number" data-target="5.5">0</span><span class="stat_plus">km</span>
+            <span class="stat_label">APC-loppet</span>
+          </div>
+          <div class="stat">
+            <span class="stat_number" data-target="10">0</span><span class="stat_plus">km</span>
+            <span class="stat_label">ICA Maxi-milen</span>
+          </div>
+          <div class="stat">
+            <span class="stat_number" data-target="500">0</span><span class="stat_plus">+</span>
+            <span class="stat_label">Deltagare år 2026</span>
+          </div>
+          <div class="stat">
+            <span class="stat_number" data-target="100">0</span><span class="stat_plus">+</span>
+            <span class="stat_label">Funktionärer</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- Bra att veta -->
+    <section class="section reveal" id="raceinfo">
+      <div class="container">
+        <header class="section_header">
+          <h2 class="section_title">Bra att veta</h2>
+        </header>
+
+        <div class="about-grid">
+
+          <div class="about_text">
+            <h3>Innan loppet</h3>
+            <ul>
+                <li>Gemensam uppvärmning för alla som vill!</li>
+                <li>Se till att vara på plats i god tid för att hämta ut din nummerlapp.</li>
+            </ul>    
+            <h3>Under loppet</h3>
+            <ul>
+                <li>Vattenstation kommer finnas på alla lopp (ca halvvägs).</li>
+                <li>Musik och hejarop utlovas längs vägen.</li>
+            </ul>
+            <h3>Efter loppet</h3>
+            <ul>
+              <li>Alla får medalj!</li>
+              <li>Målservice med återhämtningsdryck och snacks till alla löpare.</li>
+              <li>Resultatservice: Se din sluttid på webben direkt efter att du har gått i mål.</li>
+            </ul>
+          </div>
+
+          <div class="about_text">
+            <h3>Schema</h3>
+            <ol class="schedule">
+              <li><time datetime="10:00">10:00</time> Evenemangsområdet öppnar på ENA-vallens IP</li>
+              <li><time datetime="11:00">11:00</time> Start Ajabaja Cancer-loppet</li>
+              <li><time datetime="12:30">12:30</time> Start APC-loppet (5,5 km)</li>
+              <li><time datetime="14:00">14:00</time> Start ICA Maxi-milen (10 km)</li>
+              <li><time datetime="15:00">15:00</time> Prisutdelning (10 km-loppet)</li>
+              <li><time datetime="17:00">17:00</time> After Run på Kesuddens Bryggeri</li>
+            </ol>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- Portfolio divider -->
+    <div class="parallax parallax--short" aria-hidden="true">
+      <div class="parallax_overlay"></div>
+      <span class="parallax_label">Bilder</span>
+    </div>
+
+
+    <!-- Portfolio -->
+    <section class="section reveal">
+      <div class="container">
+        <header class="section_header">
+          <h2 class="section_title">Bilder från Ajabaja-loppet</h2>
+        </header>
+
+        <div class="gallery">
+          <figure class="gallery_item gallery_item_portrait">
+            <img src="Bilder/ajabaja_005.jpg" alt="Maskot på plats!" loading="lazy">
+            <figcaption class="gallery_caption">Ajabaja-loppet</figcaption>
+          </figure>
+          <figure class="gallery_item gallery_item_portrait">
+            <img src="Bilder/ajabaja_003.jpg" alt="Snabba löpare i starten" loading="lazy">
+            <figcaption class="gallery_caption">Ajabaja-loppet</figcaption>
+          </figure>
+          <figure class="gallery_item gallery_item_portrait">
+            <img src="Bilder/ajabaja_002.jpg" alt="Hejarop längs banan" loading="lazy">
+            <figcaption class="gallery_caption">Ajabaja-loppet</figcaption>
+          </figure>
+          <figure class="gallery_item gallery_item_portrait">
+            <img src="Bilder/ajabaja_001.jpg" alt="Full fart!" loading="lazy">
+            <figcaption class="gallery_caption">Ajabaja-loppet</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact divider -->
+    <div class="parallax parallax--short" aria-hidden="true">
+      <div class="parallax_overlay"></div>
+      <span class="parallax_label">Kontakt</span>
+    </div>
+
+    <!-- Contact -->
+    <section class="section reveal" id="contact">
+      <div class="container">
+        <header class="section_header">
+          <h2 class="section_title">Hör av dig</h2>
+          <p class="section_subtitle">Vi svarar gärna på dina frågor</p>
+        </header>
+
+        <div class="contact-grid">
+          <div class="contact_sidebar">
+            <img
+              src="Bilder/APC.jfif"
+              class="contact_map"
+              loading="lazy"
+            >
+            <ul class="contact_details" aria-label="Kontaktuppgifter">
+              <li class="contact_detail">
+                <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                <span>Enköping, Sverige</span>
+              </li>
+              <li class="contact_detail">
+                <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                <span>070-123 45 67</span>
+              </li>
+              <li class="contact_detail">
+                <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                <span>info@enkopingsloppet.se</span>
+              </li>
+            </ul>
+          </div>
+
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="contact-form_row">
+              <div class="form-group">
+                <label for="field-name" class="form-label">Namn</label>
+                <input
+                  type="text"
+                  id="field-name"
+                  name="name"
+                  class="form-input"
+                  placeholder="Ditt namn"
+                  required
+                  minlength="2"
+                  autocomplete="name"
+                  data-label="namn"
+                >
+              </div>
+              <div class="form-group">
+                <label for="field-email" class="form-label">E-post</label>
+                <input
+                  type="email"
+                  id="field-email"
+                  name="email"
+                  class="form-input"
+                  placeholder="Din e-postadress"
+                  required
+                  autocomplete="email"
+                  data-label="e-post"
+                >
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="field-message" class="form-label">Meddelande</label>
+              <textarea
+                id="field-message"
+                name="message"
+                class="form-input form-textarea"
+                placeholder="Skriv ditt meddelande här..."
+                rows="5"
+                required
+                minlength="10"
+                data-label="meddelande"
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary">
+              <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Skicka meddelande
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================== FOOTER ======================== -->
+  <footer class="site-footer">
+    <div class="container site-footer_inner">
+      <a href="#home" class="btn btn--outline btn--sm">Till toppen <i class="fa-solid fa-arrow-up" aria-hidden="true"></i></a>
+
+      <nav class="social-links" aria-label="Sociala medier">
+        <a href="https://facebook.com/" class="social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://instagram.com/" class="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://x.com/" class="social-link" aria-label="X" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://youtube.com/" class="social-link" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://strava.com/" class="social-link" aria-label="Strava" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-strava"></i></a>
+      </nav>
+
+      <p class="site-footer_credit">Enköpingsloppet &copy; <span id="year"></span></p>
+    </div>
+  </footer>
+
+  <!-- ======================== IMAGE MODAL ======================== -->
+  <div class="modal" id="image-modal" role="dialog" aria-modal="true" aria-label="Bildvisning" hidden>
+    <button class="modal_close" id="modal-close" aria-label="Stäng bild"><i class="fa-solid fa-xmark"></i></button>
+    <div class="modal_body">
+      <img class="modal_img" id="modal-img" src="" alt="">
+      <p class="modal_caption" id="modal-caption"></p>
+    </div>
+  </div>
+
+  <!-- Toast notifications -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <script src="leaflet.js"></script>
+  <script src="lopp_script.js"></script>
+</body>
+</html>

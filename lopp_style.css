@@ -11,8 +11,6 @@
   --border: #e7e5e4;
   --dark: #1c1917;
   --dark-muted: #a8a29e;
-  --success: #16a34a;
-
   --font: 'Lato', sans-serif;
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
   --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -253,8 +251,7 @@ textarea {
 
 /* Focus ring for keyboard users */
 .navbar_link:focus-visible,
-.btn:focus-visible,
-.form-input:focus-visible {
+.btn:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
@@ -777,90 +774,82 @@ textarea {
    ========================================================== */
 .contact-grid {
   display: grid;
-  grid-template-columns: 5fr 7fr;
-  gap: 48px;
-  align-items: start;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(28px, 6vw, 72px);
+  align-items: center;
 }
 
 .contact_map {
   width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.contact_content {
+  padding: clamp(24px, 4vw, 48px);
+  background: var(--card);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow);
-  margin-bottom: 32px;
+}
+
+.contact_intro {
+  margin-bottom: 28px;
+  color: var(--muted);
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  line-height: 1.7;
 }
 
 .contact_details {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .contact_detail {
   display: flex;
   align-items: center;
-  gap: 14px;
-  font-size: 0.95rem;
+  gap: 16px;
+  min-width: 0;
+  padding: 18px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  overflow-wrap: anywhere;
 }
 
 .contact_detail i {
-  width: 20px;
+  flex: 0 0 22px;
   text-align: center;
   color: var(--accent);
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
-/* Form */
-.contact-form_row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-
-.form-group + .form-group,
-.contact-form_row + .form-group {
-  margin-top: 16px;
-}
-
-.form-label {
+.contact_label {
   display: block;
-  font-size: 0.85rem;
+  margin-bottom: 2px;
+  color: var(--muted);
+  font-size: 0.75rem;
   font-weight: 700;
-  margin-bottom: 6px;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-.form-input {
-  width: 100%;
-  padding: 12px 14px;
-  border: 2px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--card);
-  color: var(--fg);
-  transition: border-color var(--ease), box-shadow var(--ease);
+.contact_detail a {
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgba(192, 57, 43, 0.35);
+  text-underline-offset: 3px;
+  transition: color var(--ease);
 }
 
-.form-input::placeholder {
-  color: var(--dark-muted);
-}
-
-.form-input:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.1);
-  outline: none;
-}
-
-/* Native HTML5 validation styling */
-.form-input:invalid:not(:placeholder-shown):not(:focus) {
-  border-color: var(--accent);
-}
-
-.form-input:valid:not(:placeholder-shown) {
-  border-color: var(--success);
-}
-
-.form-textarea {
-  resize: vertical;
-  min-height: 120px;
+.contact_detail a:hover,
+.contact_detail a:focus-visible {
+  color: var(--accent);
 }
 
 /* ==========================================================
@@ -1018,44 +1007,6 @@ textarea {
 }
 
 /* ==========================================================
-   TOAST NOTIFICATIONS
-   ========================================================== */
-.toast-container {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  z-index: 1100;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  pointer-events: none;
-}
-
-.toast {
-  padding: 14px 24px;
-  border-radius: var(--radius);
-  color: #fff;
-  font-weight: 700;
-  font-size: 0.9rem;
-  box-shadow: var(--shadow-lg);
-  transform: translateX(120%);
-  transition: transform var(--ease);
-  pointer-events: auto;
-}
-
-.toast.visible {
-  transform: translateX(0);
-}
-
-.toast--success {
-  background: var(--success);
-}
-
-.toast--error {
-  background: var(--accent);
-}
-
-/* ==========================================================
    SCROLL REVEAL
    ========================================================== */
 .reveal {
@@ -1105,11 +1056,6 @@ textarea {
 
   .gallery {
     grid-template-columns: repeat(3, 1fr);
-  }
-
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
   }
 }
 
@@ -1177,8 +1123,13 @@ textarea {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .contact-form_row {
-    grid-template-columns: 1fr;
+  .contact-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .contact_content {
+    padding: 24px;
   }
 }
 
@@ -1244,8 +1195,7 @@ textarea {
   }
 
   .modal,
-  .modal_body,
-  .toast {
+  .modal_body {
     transition: none;
   }
 
@@ -1262,7 +1212,6 @@ textarea {
   .site-header,
   .navbar_toggle,
   .site-footer .social-links,
-  .toast-container,
   .modal,
   .parallax {
     display: none !important;

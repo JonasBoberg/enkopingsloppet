@@ -16,8 +16,6 @@
   const modalCap    = document.getElementById('modal-caption');
   const modalClose  = document.getElementById('modal-close');
   const gallery     = document.querySelector('.gallery');
-  const form        = document.getElementById('contact-form');
-  const toastBox    = document.getElementById('toast-container');
   const yearSpan    = document.getElementById('year');
 
   // Set footer year
@@ -190,56 +188,7 @@
     statsObserver.observe(statsSection);
   }
 
-  // ── 7. Form handling ───────────────────────────────────
-  // Custom Swedish validation messages — overrides the browser's default
-  // English strings when checkValidity() / reportValidity() runs.
-  function setupSwedishValidation() {
-    if (!form) return;
-    var messages = {
-      valueMissing: function (label) { return 'Vänligen fyll i ' + label + '.'; },
-      typeMismatch: function (label) { return 'Ogiltigt format för ' + label + '.'; },
-      tooShort: function (label, min) { return label + ' måste vara minst ' + min + ' tecken.'; }
-    };
-
-    function validateField(field) {
-      var label = field.getAttribute('data-label') || field.name;
-      var validity = field.validity;
-      var msg = '';
-      if (validity.valueMissing) msg = messages.valueMissing(label);
-      else if (validity.typeMismatch) msg = messages.typeMismatch(label);
-      else if (validity.tooShort) msg = messages.tooShort(label, field.getAttribute('minlength'));
-      field.setCustomValidity(msg);
-    }
-
-    form.querySelectorAll('input, textarea').forEach(function (field) {
-      field.addEventListener('input', function () { validateField(field); });
-      field.addEventListener('blur', function () { validateField(field); });
-      validateField(field);
-    });
-  }
-
-  setupSwedishValidation();
-
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      // Native HTML5 validation (with Swedish messages set above)
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
-
-      // Collect data (for demonstration — no backend)
-      var data = new FormData(form);
-      var name = data.get('name');
-
-      showToast('Tack, ' + name + '! Ditt meddelande har skickats.', 'success');
-      form.reset();
-    });
-  }
-
-  // ── 8. Interactive route map (OpenStreetMap via Leaflet) ─────────────────
+  // ── 7. Interactive route map (OpenStreetMap via Leaflet) ─────────────────
   function buildFallbackRouteData() {
     return {
       map: {
@@ -583,25 +532,5 @@
   }
 
   loadRouteData();
-
-  // ── 9. Toast notifications ─────────────────────────────
-  function showToast(message, type) {
-    type = type || 'success';
-    var toast = document.createElement('div');
-    toast.className = 'toast toast--' + type;
-    toast.textContent = message;
-    toastBox.appendChild(toast);
-
-    // Trigger reflow then animate in
-    void toast.offsetWidth;
-    toast.classList.add('visible');
-
-    setTimeout(function () {
-      toast.classList.remove('visible');
-      toast.addEventListener('transitionend', function () {
-        toast.remove();
-      });
-    }, 3500);
-  }
 
 })();

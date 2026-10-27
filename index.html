@@ -255,26 +255,27 @@
         </header>
 
         <div class="contact-grid">
-          <div class="contact_sidebar">
+          <div class="contact_visual">
             <img
               src="Bilder/APC.jfif"
+              alt="Bild från Enköpingsloppet"
               class="contact_map"
               loading="lazy"
             >
+          </div>
+          <div class="contact_content">
+            <p class="contact_intro">Har du frågor om Enköpingsloppet? Vi hjälper dig gärna — hör av dig via mejl.</p>
             <ul class="contact_details" aria-label="Kontaktuppgifter">
               <li class="contact_detail">
                 <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-                <span>Enköping, Sverige</span>
+                <span><span class="contact_label">Plats</span>Enköping, Sverige</span>
               </li>
-            <!--  
-              <li class="contact_detail">
-                <i class="fa-solid fa-phone" aria-hidden="true"></i>
-                <span>070-123 45 67</span>
-              </li>
-            -->
               <li class="contact_detail">
                 <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-                <span>info@enkopingsloppet.se</span>
+                <span>
+                  <span class="contact_label">Mejla oss</span>
+                  <a href="mailto:info@enkopingsloppet.se">info@enkopingsloppet.se</a>
+                </span>
               </li>
             </ul>
           </div>
@@ -309,9 +310,6 @@
       <p class="modal_caption" id="modal-caption"></p>
     </div>
   </div>
-
-  <!-- Toast notifications -->
-  <div class="toast-container" id="toast-container" aria-live="polite"></div>
 
   <script src="leaflet.js"></script>
   <script src="lopp_script.js"></script>

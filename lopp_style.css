@@ -1118,6 +1118,56 @@ textarea {
     padding: 56px 0;
   }
 
+  #banan .section_header {
+    margin-bottom: 32px;
+  }
+
+  #banan .route-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  #banan .route-selector {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  #banan .route-toggle:last-child {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 4px);
+  }
+
+  #banan .route-toggle {
+    min-height: 44px;
+    padding: 9px 10px;
+    text-align: center;
+  }
+
+  #banan #route-map {
+    height: clamp(240px, 65vw, 320px);
+    min-height: 240px;
+    border-radius: 16px;
+  }
+
+  #banan .leaflet-container {
+    border-radius: 16px;
+  }
+
+  #banan .route-info {
+    gap: 16px;
+  }
+
+  #banan .route-list {
+    padding-left: 20px;
+  }
+
+  #banan .route-list li {
+    line-height: 1.5;
+  }
+
   .stats_grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 32px;
@@ -1133,6 +1183,36 @@ textarea {
 }
 
 @media (max-width: 480px) {
+  #banan .section_header {
+    margin-bottom: 28px;
+  }
+
+  #banan .route-grid {
+    gap: 24px;
+  }
+
+  #banan .route-toggle {
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+  }
+
+  #banan #route-map {
+    height: 240px;
+    min-height: 240px;
+  }
+
+  #banan .route-info {
+    gap: 14px;
+  }
+
+  #banan .route-badges {
+    gap: 8px;
+  }
+
+  #banan .route-badges span {
+    padding: 7px 12px;
+  }
+
   .gallery {
     grid-template-columns: 1fr;
     max-width: 360px;

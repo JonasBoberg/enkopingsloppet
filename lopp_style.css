@@ -109,6 +109,11 @@ textarea {
   padding: 80px 0;
 }
 
+#banan,
+#raceinfo {
+  background-color: #f1ede8;
+}
+
 .section_header {
   text-align: center;
   margin-bottom: 56px;
@@ -443,6 +448,73 @@ textarea {
    The default .about-grid (image + text) keeps its center alignment. */
 #raceinfo .about-grid {
   align-items: start;
+}
+
+.price-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  box-shadow: var(--shadow-sm);
+}
+
+.price-table {
+  width: 100%;
+  min-width: 900px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.price-table th,
+.price-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.price-table thead th {
+  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.price-table tbody th {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.price-table tbody td {
+  font-size: 1.1rem;
+  font-weight: 900;
+}
+
+.price-table tbody tr:nth-child(-n+2) td:not(:last-child) {
+  white-space: nowrap;
+}
+
+.price-table tbody tr:last-child td[colspan] {
+  font-size: 0.95rem;
+  font-weight: 400;
+}
+
+.price-table tbody tr:last-child td[colspan] strong {
+  color: var(--accent);
+  font-size: 1.05rem;
+  font-weight: 900;
+}
+
+.price-table .btn--primary {
+  margin-top: 0;
+  padding: 9px 12px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.price-table tbody tr:last-child th,
+.price-table tbody tr:last-child td {
+  border-bottom: none;
 }
 
 .about_image-wrap {
@@ -1062,6 +1134,15 @@ textarea {
 @media (max-width: 768px) {
   .section {
     padding: 56px 0;
+  }
+
+  .price-table th,
+  .price-table td {
+    padding: 14px 12px;
+  }
+
+  .price-table tbody td {
+    font-size: 1rem;
   }
 
   #banan .section_header {

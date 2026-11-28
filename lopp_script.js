@@ -398,7 +398,7 @@
     }
 
     labels.knatte = labels.knatte || 'Barnloppet';
-    labels['5,5km'] = labels['5,5km'] || '5,5 km';
+    labels['5km'] = labels['5km'] || '5 km';
     labels['enkopingsloppet-10-km-tavlingsloppet'] = labels['enkopingsloppet-10-km-tavlingsloppet'] || '10 km';
 
     return labels;
@@ -409,7 +409,7 @@
     if (!routeSelector) return;
 
     var labels = getRouteLabelsMap(data);
-    var routeOrder = ['enkopingsloppet-10-km-tavlingsloppet', '5,5km', 'knatte'];
+    var routeOrder = ['enkopingsloppet-10-km-tavlingsloppet', '5km', 'knatte'];
     var routes = (data && Array.isArray(data.raceRoutes) ? data.raceRoutes : buildFallbackRouteData().routes);
     var mapRoutes = routeOrder
       .map(function (raceId) {

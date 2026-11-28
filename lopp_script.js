@@ -210,8 +210,8 @@
           ]
         },
         {
-          id: '5,5km',
-          label: '5,5 km',
+          id: '5km',
+          label: '5 km',
           color: '#ff642d',
           coordinates: [
             [59.632204, 17.06762],
